@@ -1,0 +1,194 @@
+a:6:{i:0;a:3:{s:4:"name";s:13:"category-main";s:4:"type";s:3:"php";s:4:"text";s:290:"$p->format('edit', 'Edit', '<div class="right bg-yellow padding5 d-inline-block">', '</div>');
+$p->format('cat', 'Рубрика: ', '<div>', '</div>');
+
+$p->html(NR . '<header>');
+
+$p->div_start('info info-top');
+$p->line('[cat]');
+$p->div_end('info info-top');
+
+$p->line('[edit][title]');";}i:1;a:3:{s:4:"name";s:9:"child-cat";s:4:"type";s:3:"php";s:4:"text";s:277:"<?php if (is_category()) {
+$this_category = get_category($cat);
+if (get_category_children($this_category->cat_ID) != "") {
+wp_list_categories('orderby=id&show_count=0&depth=1&hide_empty=0&title_li=
+&use_desc_for_title=1&child_of='.$this_category->cat_ID);
+echo '<br />';
+}
+} ?>";}i:2;a:3:{s:4:"name";s:6:"pop_up";s:4:"type";s:4:"html";s:4:"text";s:4070:"<div id='popup' class='popup hidden'>
+    <button id='close-button' class='close-btn'>×</button>
+    <h2>Больше актуальных статей<br>на нашем канале</h2>
+    <p class='channel-name'>ДЗЕН</p>
+    <p>Подпишись, чтобы не пропустить!</p>
+    <div class='button-container'>
+        <button id='subscribe-button' class='subscribe-btn' onclick='window.location.href = "https://dzen.ru/id/65832c987d419b62a0f69f55"'>Подпишись</button>
+        <button id='already-subscribed-button' class='already-subscribed-btn' onclick='alreadySubscribed()'>Уже подписан</button>
+    </div>
+</div>
+
+<style>
+    .popup {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #262944;
+        color: #ffffff;
+        text-align: center;
+        font-family: arial;
+        z-index: 1000;
+        box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) { /* Для экранов смартфонов */
+        .popup {
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .subscribe-btn,
+        .already-subscribed-btn {
+            width: 80%;
+            max-width: 350px;
+            padding: 15px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+    }
+
+    @media (min-width: 769px) { /* Для экранов больше 768px (десктоп) */
+        .popup {
+            bottom: 10px;
+            right: 10px;
+            left: auto;
+            width: auto;
+            height: auto;
+            max-width: 300px;
+            padding: 30px;
+            border: 1px solid #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #ff0000;
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        padding: 5px;
+        width: auto;
+        height: auto;
+        z-index: 1001;
+    }
+
+    .popup h2 {
+        font-size: 18px;
+        margin-bottom: 5px;
+        word-break: break-word;
+    }
+
+    .channel-name {
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        margin-bottom: 15px;
+        word-break: break-word;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .subscribe-btn,
+    .already-subscribed-btn {
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin: 5px;
+        width: auto;
+        min-width: 150px;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 1001;
+    }
+
+    .already-subscribed-btn {
+        background-color: #6c757d;
+    }
+
+    .popup p {
+        word-break: break-word;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const popup = document.getElementById('popup');
+    const closeButton = document.getElementById('close-button');
+
+    // Hide popup initially
+    popup.classList.add('hidden');
+
+    // Show popup after 10 seconds
+    setTimeout(function () {
+        if (!localStorage.getItem('alreadySubscribed')) {
+            popup.classList.remove('hidden');
+        }
+    }, 10000);
+
+    function alreadySubscribed() {
+        localStorage.setItem('alreadySubscribed', 'true');
+        popup.classList.add('hidden');
+    }
+
+    closeButton.addEventListener('click', closePopup);
+
+    function closePopup() {
+        popup.classList.add('hidden');
+    }
+});
+</script>
+";}i:3;a:3:{s:4:"name";s:4:"stat";s:4:"type";s:4:"html";s:4:"text";s:28:"<div align="center">
+
+</div>";}i:4;a:3:{s:4:"name";s:8:"user-map";s:4:"type";s:4:"html";s:4:"text";s:28:"<div align="center">
+
+</div>";}i:5;a:3:{s:4:"name";s:13:"Yndex_Metrika";s:4:"type";s:4:"html";s:4:"text";s:752:"<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(100374650, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/100374650" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->";}}

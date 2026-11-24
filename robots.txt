@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /search/
+Disallow: /pagefind/
+
+Sitemap: https://scalae7.com/sitemap.xml
